@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+//importamos la clase del servicio
+import { AuthService } from "../servicios/auth.service";
+import { Router } from "@angular/router";
+//error mensaje
+import { AlertController } from '@ionic/angular';  
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -7,9 +14,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
-  constructor() { }
+  //variables
+  email: string;
+  password: string;
+
+  //inyectamos y tenemos el acceso a todos los metodos
+  constructor(private authService: AuthService, 
+    public router: Router, 
+    public alertCtrl: AlertController) { }
+
 
   ngOnInit() {
   }
 
+  //metodo
+  onSubmitLogin()
+  {
+    this.authService.login(this.email, this.password).then( res =>{
+      this.router.navigate(['/home']);
+    }).catch(err => alert('los datos son incorrectos'))
+  }
+
+  async showAlert() {  
+    const alert = await this.alertCtrl.create({  
+      header: 'Alert',  
+      subHeader: 'SubTitle',  
+      message: 'This is an alert message',  
+      buttons: ['OK']  
+    });  
+    await alert.present();  
+    const result = await alert.onDidDismiss();  
+    console.log(result);  
+  }
+  
 }

@@ -6,6 +6,18 @@ export const environment = {
   production: false
 };
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyBbH36OfLte8eqV2M56t-fIs8TfYys9hB8",
+  authDomain: "bddapprest.firebaseapp.com",
+  databaseURL: "https://bddapprest.firebaseio.com",
+  projectId: "bddapprest",
+  storageBucket: "bddapprest.appspot.com",
+  messagingSenderId: "206771508675",
+  appId: "1:206771508675:web:c2276601658b479e4e1976",
+  measurementId: "G-Q9ZR415JTT"
+};
+
+
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
