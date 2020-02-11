@@ -30,16 +30,21 @@ export class LoginPage implements OnInit {
   //metodo
   onSubmitLogin()
   {
-    this.authService.login(this.email, this.password).then( res =>{
-      this.router.navigate(['/home']);
-    }).catch(err => alert('los datos son incorrectos'))
+    this.authService.login(this.email, this.password).then( 
+      res =>{
+        this.router.navigate(['/home']);
+      },
+      res =>{
+        this.showAlert();
+      })
   }
+  
 
   async showAlert() {  
     const alert = await this.alertCtrl.create({  
-      header: 'Alert',  
-      subHeader: 'SubTitle',  
-      message: 'This is an alert message',  
+      header: 'Warning !',  
+      subHeader: 'Hubo un error!',  
+      message: 'Verifique los datos =(',  
       buttons: ['OK']  
     });  
     await alert.present();  
