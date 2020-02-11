@@ -23,16 +23,6 @@ export class AppComponent {
     this.initializeApp();
   }
 
-  /*initializeApp() {
-    this.platform.ready().then(() => {
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
-  }*/
-
-  //animacion
-   // ...omitted
-
    showSplash = true; // <-- show animation
 
    initializeApp() {
